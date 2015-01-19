@@ -136,39 +136,34 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="images/me.png">
+				<img src="<%=theme.avatar%>">
 			</div>
 
 			<hgroup>
-			  <h1 class="header-author"><a href="/">Bruce Lee</a></h1>
+			  <h1 class="header-author"><a href="/"><%=theme.title%></a></h1>
 			</hgroup>
-			
-			<p class="header-subtitle">Welcome to LightBooks</p>
-			
+			<% if (theme.subtitle){ %>
+			<p class="header-subtitle"><%=theme.subtitle%></p>
+			<%}%>
 			<nav class="header-menu">
 				<ul>
-				
-					<li><a href="/">Home</a></li>
-		        
-					<li><a href="/archives">Archives</a></li>
-		        
+				<% for (var i in theme.menu){ %>
+					<li><a href="<%- url_for(theme.menu[i]) %>"><%= i %></a></li>
+		        <%}%>
 		        <div class="clearfix"></div>
 				</ul>
 			</nav>
 			<nav class="header-nav">
 				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/coolcode" title="github">github</a>
-			        
-						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-			        
-						<a class="facebook" target="_blank" href="https://www.facebook.com/freeopensky" title="facebook">facebook</a>
-			        
+					<% for (var i in theme.subnav){ %>
+						<a class="<%= i %>" target="_blank" href="<%- url_for(theme.subnav[i]) %>" title="<%= i %>"><%= i %></a>
+			        <%}%>
 				</div>
 			</nav>
 		</header>				
 	</div>
 </nav>
+
       
 <article id="post-richdad-poordad-008" class="article article-type-post" itemscope itemprop="blogPost">
   
